@@ -1,0 +1,234 @@
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    transition: opacity 0.75s, visibility 0.75s;
+    animation: back 3s forwards;
+    transform-origin: center;
+    width: 100%;
+    min-height: 100%;
+    z-index: 1000;
+  }
+  
+  .loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .loader::after {
+    content: "";
+    width: 200px;
+    height: 200px;
+    border: 15px solid #dddddd;
+    border-top-color: #9356dc;
+    border-radius: 50%;
+    animation: loading 3s forwards;
+    transform-origin: center;
+  }
+  
+  @keyframes loading {
+    from {
+      transform: rotate(0turn);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(1turn);
+      opacity: 0;
+      z-index: 0;
+      visibility: hidden;
+    }
+  }
+  
+  @keyframes back {
+    from {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+      z-index: 0;
+      visibility: hidden;
+    }
+  }
+
+
+
+
+
+  
+.card-menu {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  overflow: hidden;
+  position: relative;
+  padding-left: 2%;
+  padding-right: 6%;
+  padding-top: 18px;
+  padding-bottom: 16px;
+  margin-bottom: 14px;
+}
+
+.card-menu:hover {
+    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+  cursor: pointer;
+}
+
+.card-menu-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: fit-content;
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.card-menu-content {
+font-weight: 300;   
+  animation: gap-out 0.75s;
+  animation-fill-mode: forwards;
+  display: inline-flex;
+  position: relative;
+  width: 100%;
+
+}
+
+.card-menu-infos {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.card-menu-price {
+  display: inline-flex;
+  font-weight: 700;
+  font-size: 16px;
+  color: #353535;
+}
+
+.check-circle {
+    display: none;
+    position: absolute;
+    background-color: #99e2d0;
+    border-radius: 0px 16px 16px 0px;
+  flex-direction: column;
+  justify-content: center;
+  left: 100%;
+height: 100%;
+  right: 0;
+  top: 0;
+  font-size: 24px;
+  color: #ffffff;
+}
+.card-menu:hover > .check-circle {
+    animation: circle-in 0.32s;
+    display: flex;
+    align-items: center;
+  animation-fill-mode: forwards;
+  visibility: visible;
+}
+
+.card-menu:not(:hover) > .check-circle {
+    animation: circle-out 0.64s;
+    display: flex;
+    align-items: center;
+  animation-fill-mode: forwards;
+}
+
+.card-menu:hover > .check-circle .fa-check-circle {
+  animation: circle-rotate 0.64s;
+  animation-fill-mode: forwards;
+}
+.card-menu:hover .card-menu-title,
+.card-menu:hover .card-menu-content {
+  animation: gap-in 0.32s;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes circle-in {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 84%;
+  }
+
+}
+@keyframes circle-out {
+  from {
+    left: 84%;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+@keyframes circle-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gap-in {
+  from {
+    width: calc(100% - 0%);
+  }
+  to {
+    width: calc(100% - 16%);
+  }
+}
+
+@keyframes gap-out {
+  from {
+    width: calc(100% - 16%);
+  }
+  to {
+    width: calc(100% - 0%);
+  }
+}
+
+
+
+
+
+
+.article-menu {
+  animation: opacity-effect 0.75s;
+  animation-fill-mode: forwards;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+}
+.entrees {
+  animation-delay: 0.50s;
+}
+.plats {
+  animation-delay: 1s;
+}
+.desserts {
+  animation-delay: 1.5s;
+}
+
+@keyframes opacity-effect {
+  from {
+    opacity: 0%;
+transform: translateY(34px);
+  }
+  to {
+    opacity: 100%;
+	transform: translateY(0px);
+  }
+}
